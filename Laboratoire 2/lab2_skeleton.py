@@ -361,4 +361,4 @@ elif mode == 'training':
     target_train = np.expand_dims(np.genfromtxt('train.csv', delimiter=',')[:,2], axis=1)
     x_val = np.genfromtxt('val.csv', delimiter=',')[:,slice(0,2)]
     target_val = np.expand_dims(np.genfromtxt('val.csv', delimiter=',')[:,2], axis=1)
-    train(x_train, target_train, x_val, target_val, epoch_count=20000, learning_rate=0.04)
+    train(x_train, target_train, x_val, target_val, epoch_count=20000, learning_rate=0.03)
