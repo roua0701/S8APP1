@@ -31,7 +31,7 @@ def softmax(x):
     :param x: The input tensor (shape: (N, C))
     :return The softmax of x
     """
-    x_shifted = x - np.max(x, axis=1, keepdims=True)
+    x_shifted = x - np.max(x, axis=1, keepdims=True) # Sécurité pour ne pas avoir de trop grandes valeurs
     exp_x = np.exp(x_shifted)
     return exp_x / np.sum(exp_x, axis=1, keepdims=True)
 

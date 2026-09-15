@@ -10,8 +10,9 @@ class FullyConnectedLayer(Layer):
 
     def __init__(self, input_count, output_count):
         super().__init__()
+        # Xavier method
         self._w = np.random.randn(output_count, input_count) * np.sqrt(2.0 / (input_count + output_count))
-        self._b = np.zeros(output_count)
+        self._b = np.random.randn(output_count) * np.sqrt(2.0 / output_count)
 
     def get_parameters(self):
         return {'w': self._w, 'b': self._b}
@@ -39,7 +40,7 @@ class BatchNormalization(Layer):
     def __init__(self, input_count, alpha=0.1):
         super().__init__()
         self._alpha = alpha
-        self._eps = 1e-8 # Ajouté par l'IA pour éviter les valeur indéfini (x/0)
+        self._eps = 1e-8
 
         self._gamma = np.ones(input_count)
         self._beta = np.zeros(input_count)
